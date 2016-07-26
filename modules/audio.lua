@@ -5,6 +5,47 @@ local audioModule = {}
 local lastMuteState
 local menuBar = hs.menubar.new()
 
+local mutedIconData = 
+[[ASCII:
+· · · · · · · · · . . · · ·
+· · · · · · · · · . . · · ·
+· · 7 . · · · · . 2 3 · · ·
+· · · # . · · · # · # · · ·
+· · · · 7 . · # · · # · · ·
+· · 1 # # 1 2 · · · # · · ·
+· · 6 · · · 8 · · · # · · ·
+· · # · · · . # · · # · · ·
+· · # · · · · · # · # · · ·
+· · 6 · · · · · · 8 # · · ·
+· · 5 # # 5 4 . . · # . . ·
+· · · · · · · # · · # 9 · ·
+· · · · · · · · # · # · # ·
+· · · · · · · · · 4 3 · · 9
+· · · · · · · · · . . · · ·
+· · · · · · · · · . . · · ·
+]]
+
+local unMutedIconData = 
+[[ASCII:
+· · · · · · · · · . . · · ·
+· · · · · · · · · . . · · ·
+· · · . · · · · . # 3 · · ·
+· · · · . · · · # · # · · ·
+· · · · · . · # · · # · · ·
+· · 1 # # # 2 · · · # · · ·
+· · # · · · · · · · # · · ·
+· · # · · · . · · · # · · ·
+· · # · · · · · · · # · · ·
+· · # · · · · · · · # · · ·
+· · 6 # # # 5 . . · # . . ·
+· · · · · · · # · · # · · ·
+· · · · · · · · # · # · · ·
+· · · · · · · · · # 4 · · ·
+· · · · · · · · · . . · · ·
+· · · · · · · · · . . · · ·
+]]
+
+
 function audioModule.init()
 	lastMuteState = currentMuteState()
 	updateMenuBar()
@@ -25,12 +66,10 @@ end
 function updateMenuBar()
 	-- see http://apps.timwhitlock.info/emoji/tables/unicode for Unicode emoji bytes
 	if lastMuteState == true then
-			title = '\xF0\x9F\x94\x87'
-		else 
-			title = '\xF0\x9F\x94\x89'
-		end
-
-		menuBar:setTitle(title)
+		menuBar:setIcon(mutedIconData)
+	else 
+		menuBar:setIcon(unMutedIconData)
+	end
 end
 
 
