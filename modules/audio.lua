@@ -43,20 +43,16 @@ local unMutedIconData =
 
 
 function audioModule.init()
-	lastMuteState = currentMuteState()
+	lastMuteState = audio.current().muted
 	updateMenuBar()
 	audio.current().device:watcherCallback(audioWatcherCallback):watcherStart()
 end
 
 function audioWatcherCallback(devUID, eventName, scope, element)  
-	if ((eventName == 'mute') and  (currentMuteState() ~= lastMuteState)) then
-		lastMuteState = currentMuteState()
+	if ((eventName == 'mute') and  (audio.current().muted ~= lastMuteState)) then
+		lastMuteState = audio.current().muted
 		updateMenuBar()
 	end
-end
-
-function currentMuteState() 
-	return audio.current().muted
 end
 
 function updateMenuBar()
