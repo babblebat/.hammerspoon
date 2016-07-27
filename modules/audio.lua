@@ -5,6 +5,7 @@ local audioModule = {}
 local lastMuteState
 local menuBar = hs.menubar.new()
 
+-- see http://cocoamine.net/blog/2015/03/20/replacing-photoshop-with-nsstring
 local mutedIconData = 
 [[ASCII:
 · · · · · · . . 2 · · ·
@@ -56,7 +57,6 @@ function audioWatcherCallback(devUID, eventName, scope, element)
 end
 
 function updateMenuBar()
-	-- see http://apps.timwhitlock.info/emoji/tables/unicode for Unicode emoji bytes
 	if lastMuteState == true then
 		menuBar:setIcon(mutedIconData)
 	else 
