@@ -20,6 +20,9 @@ function appsModule.init()
     hotkey.bind(mash, 'A', function()
     	hs.application.launchOrFocus("AppCode")
     end)
+    hotkey.bind(mash, 'K', function()
+    	hs.application.launchOrFocus("Visual Studio Code")
+    end)
 end
 
 return appsModule 
