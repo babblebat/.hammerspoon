@@ -8,7 +8,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
 	hs.reload()
 end)
 
-audio.init()
+-- audio.init()
 arrows.init()
 wireless.init()
 apps.init()
