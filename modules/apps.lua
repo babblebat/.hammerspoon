@@ -23,6 +23,9 @@ function appsModule.init()
     hotkey.bind(mash, 'K', function()
     	hs.application.launchOrFocus("Visual Studio Code")
     end)
+    hotkey.bind(mash, 'R', function()
+    	hs.application.launchOrFocus("RoboForm")
+    end)
 end
 
 return appsModule 
