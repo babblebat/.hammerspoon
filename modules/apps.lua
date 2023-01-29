@@ -29,6 +29,9 @@ function appsModule.init()
     hotkey.bind(mash, 'L', function()
     	hs.application.launchOrFocus("Logic Pro X")
     end)
+    hotkey.bind(mash, 'S', function()
+    	hs.application.launchOrFocus("System Settings")
+    end)
 end
 
 return appsModule 
